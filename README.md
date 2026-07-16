@@ -1,7 +1,8 @@
 [![visibility](https://img.shields.io/badge/visibility-PUBLIC%20overview-lightgrey)](#)
 [![source](https://img.shields.io/badge/source-PRIVATE%20%2F%20proprietary-critical)](https://github.com/rfi-irfos/lauras-agents)
 [![license](https://img.shields.io/badge/license-all--rights--reserved-red)](./LICENSE)
-[![agents](https://img.shields.io/badge/enterprise%20pool-290%2B%20functions-blue)](./docs/architecture.md)
+[![agents](https://img.shields.io/badge/enterprise%20pool-292%20functions-blue)](./docs/agents.md)
+[![pipeline](https://img.shields.io/badge/pipeline-recursive%20async%20multi--agent-informational)](./docs/metacog-whitebox.md)
 [![built on](https://img.shields.io/badge/built%20on-Laura's%20Human--AI%20Co--Evolution-informational)](https://github.com/rfi-irfos/call-laura)
 [![free sibling](https://img.shields.io/badge/free%20version-call--laura-brightgreen)](https://github.com/rfi-irfos/call-laura)
 
@@ -11,29 +12,37 @@
 scan that misses whole categories, or blends a security flaw into a legal nitpick into a
 wording complaint — and calls it a report.
 
-We don't do that. We run **a team of narrow specialists** that each look at the *same*
-input at the *same* time, each locked inside its own lane, each told to **shut up rather
-than guess.** When two specialists independently flag the same sentence — and nobody told
-them to agree — that's a real signal. One model's single opinion is not.
+We don't do that. We run a **metacognitive, recursive, asynchronous multi-agent automatic
+data-processing pipeline** — *x-ray chain-of-thought reasoning* across a team of narrow
+specialists that each look at the same input at the same time, each locked inside its own
+lane, each told to **shut up rather than guess**, each one **improving itself** after every
+pass. When two specialists independently flag the same sentence — and nobody told them to
+agree — that's a real signal. One model's single opinion is not.
 
 Built on **Laura Serna Gaviria's Human-AI Co-Evolution research.** Licensable per agent,
-per bundle, or as the full team running automatically over your incoming data.
+per bundle, or as the full pipeline running automatically over your incoming data.
 
 ---
 
-## What actually happens to your text
+## What actually runs
 
-1. Your document goes to every entitled agent at once.
-2. Each agent returns **findings that quote your exact words** — verbatim, never a
+This is not a chatbot you paste a doc into. It is a **pipeline**:
+
+1. Incoming data hits the orchestrator.
+2. Every **entitled agent** processes it **asynchronously and in parallel** — no queue, no
+   waiting on the slowest one.
+3. Each agent returns **findings that quote your exact words** — verbatim, never a
    paraphrase, never an invented example. A finding whose "evidence" isn't literally in
    your input is **dropped**, not passed through on the model's word.
-3. An agent with nothing solid to say **says so** — no fabricated "all clear" just to look
+4. An agent with nothing solid to say **says so** — no fabricated "all clear" just to look
    useful.
-4. Every severity is explicit: `blocker` / `flag` / `note`.
+5. Every severity is explicit: `blocker` / `flag` / `note`.
+6. After the pass, each agent **audits its own output** (see [Metacognition](#metacognition-agents-that-improve-themselves-in-the-open))
+   and may **rewrite its own prompt** for next time.
 
-That's the whole discipline. It's the same one the free, public
-[`call-laura`](https://github.com/rfi-irfos/call-laura) proves deterministically — this
-repo is where the *real* model-backed version lives.
+That's the discipline. The free, public
+[`call-laura`](https://github.com/rfi-irfos/call-laura) proves the same taxonomy
+deterministically — this repo is where the *real* model-backed pipeline lives.
 
 ### Why "a team" beats "one smart model"
 
@@ -56,23 +65,9 @@ so you can read it yourself in two seconds instead of trusting a summary. And be
 **drop** any finding whose evidence isn't truly in your text, you never get a confident
 hallucination dressed up as a quote. The model's word is never the last word.
 
-## What it catches
+## The enterprise pool: 292 function-agents, one pipeline
 
-The licensed product covers, among others:
-
-| Domain | Concrete examples of what specialists look for |
-|---|---|
-| **Security** | injectable queries, weak password hashing, hardcoded secrets, missing auth checks |
-| **Legal & Compliance** | GDPR/CCPA/HIPAA/EU AI Act red flags, missing disclaimers, overstated compliance claims |
-| **Finance** | pricing/revenue claims with no source, blurred free-vs-paid lines |
-| **Privacy** | personal data with no consent, retention, or stated reason |
-| **Operations** | releases with no rollback, no monitoring, no clear owner |
-| **Strategy / Product** | unproven competitive claims, features with no real user need |
-| **Enterprise pool** | an org-chart-wide set of function agents — Legal-IP, Payments, CEO, AI-Safety — each with frameworks-aware review |
-
-### The enterprise pool: your whole org chart, as agents
-
-The 15 core roles are hand-authored. On the same engine sits a **data-driven pool of 290+
+The 15 core roles are hand-authored. On the same engine sits a **data-driven pool of 292
 function agents** generated from an org map — Legal-IP, Payments, CEO, AI-Safety, every VP
 and lane. Each one carries:
 
@@ -81,13 +76,25 @@ and lane. Each one carries:
 - its **`feeds_into` edges**, so a flow like *"launch an AI feature"* becomes a
   **directed graph across the team** — not a black box.
 
+The full list — every slug, grouped by domain, each interlinked — is in
+[`docs/agents.md`](./docs/agents.md). A few from the map:
+
+| Domain | Sample function agents |
+|---|---|
+| Executive | [`ceo`](./docs/agents.md), [`cfo`](./docs/agents.md), [`cto`](./docs/agents.md), [`chief-ai-officer`](./docs/agents.md), [`chief-risk-officer`](./docs/agents.md) |
+| Legal | [`legal-ip`](./docs/agents.md), [`legal-privacy`](./docs/agents.md), [`legal-compliance`](./docs/agents.md), [`legal-litigation`](./docs/agents.md) |
+| Engineering | [`be-payments`](./docs/agents.md), [`sece-ng-red`](./docs/agents.md), [`sre-reliability`](./docs/agents.md), [`qa-automation`](./docs/agents.md) |
+| Risk & Compliance | [`risk-gdpr`](./docs/agents.md), [`risk-sox`](./docs/agents.md), [`risk-hipaa`](./docs/agents.md), [`risk-ethics`](./docs/agents.md) |
+| AI / ML | [`ai-safety-alignment`](./docs/agents.md), [`ml-training`](./docs/agents.md), [`mlops-pipelines`](./docs/agents.md), [`ds-forecasting`](./docs/agents.md) |
+| Go to market | [`ent-ae`](./docs/agents.md), [`mkt-growth-seo`](./docs/agents.md), [`cs-renewals`](./docs/agents.md), [`revops`](./docs/agents.md) |
+
 You don't get "an AI looked at it." You get *the exact chain of specialists* a real launch
 would have to clear, and which ones flagged what.
 
 ## Metacognition: agents that improve themselves, in the open
 
 Here's the part nobody else does. Every agent runs inside a "black box" it can't see into.
-After each review it **audits its own output**:
+After each pass it **audits its own output** — recursively, as part of the pipeline:
 
 - It names what it did **weakly** — and what it **cannot verify** from text alone
   (live system state, internal financials, regulator intent). That admission of ignorance
@@ -101,11 +108,12 @@ After each review it **audits its own output**:
 
 That's **whitebox by design**: every self-change is auditable and reversible, and the
 agent's own blind spots are surfaced to you. An autonomous system you can actually audit —
-not a box you have to trust.
+not a box you have to trust. The full design is in
+[`docs/metacog-whitebox.md`](./docs/metacog-whitebox.md).
 
 ### A concrete metacog moment
 
-The agent reviews a text, flags an unrecorded patent assignment. In its self-reflection it
+The agent processes a text, flags an unrecorded patent assignment. In its self-reflection it
 admits: *"I flagged the assignment conflict, but I did not verify the actual assignment
 terms or confirm the license via a live lookup."* It rewrites its own prompt to do exactly
 that next time, bumps to `1.1.1`, logs the change, and proposes a new verification skill —
@@ -116,11 +124,11 @@ for **your** review. Nothing installs itself. You see every step.
 [`call-laura`](https://github.com/rfi-irfos/call-laura) is the public, deterministic,
 free sibling — same 15-role taxonomy, pattern-matching instead of a model call. It proves
 the discipline honestly before anyone pays for the real thing. Start there; license the
-model-backed team when you're ready.
+model-backed pipeline when you're ready.
 
 ## Access
 
-**This repository is source-free.** The agent prompts and the 290+ manifests are the
+**This repository is source-free.** The agent prompts and the 292 manifests are the
 product — they live in a **private** repository, available to licensees and invited
 collaborators. What you're reading is the concept and the contract. To license single
 agents, a bundle, or the full automated pipeline, or to request collaborator access,
@@ -128,8 +136,9 @@ contact **RFI-IRFOS**.
 
 ## Docs in this repo
 
+- [`docs/agents.md`](./docs/agents.md) — the full 292-agent pool, every slug interlinked
 - [`docs/architecture.md`](./docs/architecture.md) — the three layers, the entitlement model, reliable structured output
-- [`docs/metacog-whitebox.md`](./docs/metacog-whitebox.md) — the self-improvement design in detail
+- [`docs/metacog-whitebox.md`](./docs/metacog-whitebox.md) — the self-improvement pipeline in detail
 - [`docs/api.md`](./docs/api.md) — endpoint list + finding shape (integration planning)
 - [`examples/sample-findings.json`](./examples/sample-findings.json) — synthetic example (clearly fabricated)
 
