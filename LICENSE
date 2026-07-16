@@ -1,0 +1,17 @@
+Copyright (c) 2026 RFI-IRFOS (ZVR 1015608684), Graz, Austria.
+All rights reserved.
+
+LAURAS-AGENTS — PROPRIETARY SOFTWARE
+
+1. This public repository contains documentation and conceptual material only.
+   The agent logic, system prompts, and data manifests are NOT open source and
+   are not licensed under any open-source terms.
+
+2. No license is granted to use, copy, modify, distribute, or create derivative
+   works of the lauras-agents software except under a separate written agreement
+   with RFI-IRFOS.
+
+3. The free, deterministic sibling project rfi-irfos/call-laura is licensed
+   separately and may be used under its own terms.
+
+For licensing or collaborator access, contact RFI-IRFOS.

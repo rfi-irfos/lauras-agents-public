@@ -1,0 +1,20 @@
+{
+  "note": "SYNTHETIC EXAMPLE — fabricated for documentation. Not produced by any real agent prompt. Demonstrates the evidence-quoting finding shape only.",
+  "agent": "example-security",
+  "complete": true,
+  "findings": [
+    {
+      "agent": "example-security",
+      "severity": "blocker",
+      "description": "Hardcoded credential detected in configuration block.",
+      "evidence": "api_key = \"<REDACTED_LIVE_KEY_EXAMPLE>\""
+    },
+    {
+      "agent": "example-legal",
+      "severity": "flag",
+      "description": "Overstated compliance claim without qualification.",
+      "evidence": "We are 100% GDPR compliant across all 27 member states."
+    }
+  ],
+  "error": null
+}
