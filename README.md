@@ -8,6 +8,9 @@
 
 # lauras-agents
 
+## Human rights are not subject to negotiation.
+
+
 **Stop asking one AI to "review this for anything wrong."** That's how you get a shallow
 scan that misses whole categories, or blends a security flaw into a legal nitpick into a
 wording complaint — and calls it a report.
